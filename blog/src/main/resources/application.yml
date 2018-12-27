@@ -1,0 +1,22 @@
+spring:
+  thymeleaf:
+    mode: HTML
+    cache: false
+    servlet:
+      content-type: text/html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/blog?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1997
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: my-application
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  main:
+    allow-bean-definition-overriding: true

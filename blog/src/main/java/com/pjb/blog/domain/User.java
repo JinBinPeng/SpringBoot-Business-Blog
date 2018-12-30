@@ -22,8 +22,6 @@ import java.util.List;
 @Entity // 实体
 @Proxy(lazy = false)
 public class User implements UserDetails, Serializable {
-
-	private static final long serialVersionUID = 1L;
 	
 	@Id // 主键
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 自增长策略
@@ -92,6 +90,7 @@ public class User implements UserDetails, Serializable {
 		this.email = email;
 	}
 	
+	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		//  需将 List<Authority> 转成 List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
 		List<SimpleGrantedAuthority> simpleAuthorities = new ArrayList<>();

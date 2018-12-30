@@ -47,7 +47,7 @@ public class CatalogController {
 		boolean isOwner = false;
 		
 		if (SecurityContextHolder.getContext().getAuthentication() !=null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
-				 &&  !SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
+				 &&  !"anonymousUser".equals(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString())) {
 			User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
 			if (principal !=null && user.getUsername().equals(principal.getUsername())) {
 				isOwner = true;

@@ -167,7 +167,6 @@ public class Blog implements Serializable {
  
 	/**
 	 * 添加评论
-	 * @param comment
 	 */
 	public void addComment(Comment comment) {
 		this.comments.add(comment);
@@ -189,14 +188,12 @@ public class Blog implements Serializable {
  
 	/**
 	 * 点赞
-	 * @param vote
-	 * @return
 	 */
 	public boolean addVote(Vote vote) {
 		boolean isExist = false;
 		// 判断重复
-		for (int index=0; index < this.votes.size(); index ++ ) {
-			if (this.votes.get(index).getUser().getId().equals(vote.getUser().getId())) {
+		for (Vote vote1 : this.votes) {
+			if (vote1.getUser().getId().equals(vote.getUser().getId())) {
 				isExist = true;
 				break;
 			}
